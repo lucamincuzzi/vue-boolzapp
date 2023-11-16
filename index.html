@@ -60,7 +60,7 @@
               <!-- Casella di ricerca -->
               <!-- Contatti -->
               <ul class="contacts">
-                <li v-for="(contact, index) in contacts" :key="contact.name" class="contact-item">
+                <li v-for="(contact, index) in contacts" :key="contact.avatar" class="contact-item" :class="index === activeChat ? 'active' : ''" @click="activeChat = index">
                   <!-- Avatar contatto -->
                   <img :src="`img/avatar${contact.avatar}.jpg`" alt="contact avatar" />
                   <!-- /Avatar contatto -->
@@ -84,11 +84,11 @@
                 <!-- Info chat attuale -->
                 <div class="current-chat">
                   <img
-                    src="img/avatar_1.jpg"
+                    :src="`img/avatar${contacts[activeChat].avatar}.jpg`"
                     alt="current chat contact avatar"
                   />
                   <div class="contact-content">
-                    <h4 class="contact-name">Michele</h4>
+                    <h4 class="contact-name">{{ contacts[activeChat].name }}</h4>
                     <span class="last-seen"
                       >Ultimo accesso oggi alle 16:26</span
                     >
@@ -103,31 +103,12 @@
               </div>
               <main>
                 <div class="chat-box">
-                  <div class="sent">
+                  <div v-for="(msg, index) in contacts[activeChat].messages" :key="index" class="chat-text" :class="msg.status">
                     <div class="text-content">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Similique laboriosam eligendi non iste dolores, libero,
-                        minus sapiente fugiat cupiditate at ipsam dolorem
-                        necessitatibus reprehenderit voluptatum omnis aut saepe
-                        reiciendis dolor.
-                      </p>
+                      <p>{{ msg.message }}</p>
                       <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <span class="text-time-sent">16:13</span>
-                  </div>
-                  <div class="received">
-                    <div class="text-content">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Similique laboriosam eligendi non iste dolores, libero,
-                        minus sapiente fugiat cupiditate at ipsam dolorem
-                        necessitatibus reprehenderit voluptatum omnis aut saepe
-                        reiciendis dolor.
-                      </p>
-                      <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                    <span class="text-time-sent">16:15</span>
                   </div>
                 </div>
               </main>

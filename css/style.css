@@ -189,6 +189,10 @@ footer input {
   border-bottom: 1px solid rgb(237, 237, 237);
 }
 
+.contact-item.active {
+    background-color: #f7f7f7;
+}
+
 .contact-content {
   margin-left: 1rem;
   width: 60%;
