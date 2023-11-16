@@ -60,117 +60,19 @@
               <!-- Casella di ricerca -->
               <!-- Contatti -->
               <ul class="contacts">
-                <li class="contact-item">
+                <li v-for="(contact, index) in contacts" :key="contact.name" class="contact-item">
                   <!-- Avatar contatto -->
-                  <img src="img/avatar_1.jpg" alt="contact avatar" />
+                  <img :src="`img/avatar${contact.avatar}.jpg`" alt="contact avatar" />
                   <!-- /Avatar contatto -->
                   <!-- Nome contatto e testo messaggio più recente -->
                   <div class="contact-content">
-                    <h4 class="contact-name">Michele</h4>
+                    <h4 class="contact-name">{{ contact.name }}</h4>
                     <span class="recent-text"
                       >Lorem ipsum dolor sit amet...</span
                     >
                   </div>
                   <!-- /Nome contatto e testo messaggio più recente -->
                   <span class="recent-text-time">16:15</span>
-                </li>
-                <li class="contact-item">
-                  <!-- Avatar contatto -->
-                  <img src="img/avatar_2.jpg" alt="contact avatar" />
-                  <!-- /Avatar contatto -->
-                  <!-- Nome contatto e testo messaggio più recente -->
-                  <div class="contact-content">
-                    <h4 class="contact-name">Fabio</h4>
-                    <span class="recent-text"
-                      >Lorem ipsum dolor sit amet...</span
-                    >
-                  </div>
-                  <!-- /Nome contatto e testo messaggio più recente -->
-                  <span class="recent-text-time">16:05</span>
-                </li>
-                <li class="contact-item">
-                  <!-- Avatar contatto -->
-                  <img src="img/avatar_3.jpg" alt="contact avatar" />
-                  <!-- /Avatar contatto -->
-                  <!-- Nome contatto e testo messaggio più recente -->
-                  <div class="contact-content">
-                    <h4 class="contact-name">Samuele</h4>
-                    <span class="recent-text"
-                      >Lorem ipsum dolor sit amet...</span
-                    >
-                  </div>
-                  <!-- /Nome contatto e testo messaggio più recente -->
-                  <span class="recent-text-time">16:03</span>
-                </li>
-                <li class="contact-item">
-                  <!-- Avatar contatto -->
-                  <img src="img/avatar_4.jpg" alt="contact avatar" />
-                  <!-- /Avatar contatto -->
-                  <!-- Nome contatto e testo messaggio più recente -->
-                  <div class="contact-content">
-                    <h4 class="contact-name">Alessandro B.</h4>
-                    <span class="recent-text"
-                      >Lorem ipsum dolor sit amet...</span
-                    >
-                  </div>
-                  <!-- /Nome contatto e testo messaggio più recente -->
-                  <span class="recent-text-time">15:50</span>
-                </li>
-                <li class="contact-item">
-                  <!-- Avatar contatto -->
-                  <img src="img/avatar_5.jpg" alt="contact avatar" />
-                  <!-- /Avatar contatto -->
-                  <!-- Nome contatto e testo messaggio più recente -->
-                  <div class="contact-content">
-                    <h4 class="contact-name">Alessandro L.</h4>
-                    <span class="recent-text"
-                      >Lorem ipsum dolor sit amet...</span
-                    >
-                  </div>
-                  <!-- /Nome contatto e testo messaggio più recente -->
-                  <span class="recent-text-time">15:45</span>
-                </li>
-                <li class="contact-item">
-                  <!-- Avatar contatto -->
-                  <img src="img/avatar_6.jpg" alt="contact avatar" />
-                  <!-- /Avatar contatto -->
-                  <!-- Nome contatto e testo messaggio più recente -->
-                  <div class="contact-content">
-                    <h4 class="contact-name">Claudia</h4>
-                    <span class="recent-text"
-                      >Lorem ipsum dolor sit amet...</span
-                    >
-                  </div>
-                  <!-- /Nome contatto e testo messaggio più recente -->
-                  <span class="recent-text-time">17:40</span>
-                </li>
-                <li class="contact-item">
-                  <!-- Avatar contatto -->
-                  <img src="img/avatar_7.jpg" alt="contact avatar" />
-                  <!-- /Avatar contatto -->
-                  <!-- Nome contatto e testo messaggio più recente -->
-                  <div class="contact-content">
-                    <h4 class="contact-name">Federico</h4>
-                    <span class="recent-text"
-                      >Lorem ipsum dolor sit amet...</span
-                    >
-                  </div>
-                  <!-- /Nome contatto e testo messaggio più recente -->
-                  <span class="recent-text-time">15:22</span>
-                </li>
-                <li class="contact-item">
-                  <!-- Avatar contatto -->
-                  <img src="img/avatar_8.jpg" alt="contact avatar" />
-                  <!-- /Avatar contatto -->
-                  <!-- Nome contatto e testo messaggio più recente -->
-                  <div class="contact-content">
-                    <h4 class="contact-name">Rolando</h4>
-                    <span class="recent-text"
-                      >Lorem ipsum dolor sit amet...</span
-                    >
-                  </div>
-                  <!-- /Nome contatto e testo messaggio più recente -->
-                  <span class="recent-text-time">15:17</span>
                 </li>
               </ul>
               <!-- /Contatti -->

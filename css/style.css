@@ -2,7 +2,7 @@
   --left-sidebar-width: 350px;
 }
 
-@media screen and (max-width: 796px;) {
+@media screen and (max-width: 796px) {
   :root {
     --left-sidebar-width: 200px;
   }
@@ -31,12 +31,6 @@ img {
     #dcdcdc 20%,
     #dcdcdc 100%
   );
-}
-
-/* Debug */
-
-.app-container * {
-  /* border: 1px solid black; */
 }
 
 /* COMMON */
