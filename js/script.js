@@ -12,6 +12,7 @@ createApp({
   data() {
     return {
       notifReqVisibility: true,
+      searchText: "",
       activeChat: 0,
       newUserMsg: "",
       newContactMsg: {
@@ -216,5 +217,18 @@ createApp({
       this.notifReqVisibility = false;
       console.log(this.notifReqVisibility);
     },
+    filterContacts: function () {
+      console.log("---------");
+      for(i = 0; i < this.contacts.length; i++) {
+        this.contacts[i].visible = true;
+        if(!this.contacts[i].name.toLowerCase().includes(this.searchText.toLowerCase())) {
+          this.contacts[i].visible = false;
+        } else if(this.searchText === "") {
+          this.contacts[i].visible = true;
+        }
+        console.log("Ricerca", this.contacts[i].name, this.contacts[i].visible);
+      };
+      console.log("---------");
+    }
   },
 }).mount("#app");

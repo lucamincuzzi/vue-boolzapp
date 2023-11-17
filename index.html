@@ -51,6 +51,8 @@
                     <i class="fa fa-search" aria-hidden="true"></i>
                   </label>
                   <input
+                    v-model="searchText"
+                    @keyup="filterContacts"
                     id="search"
                     type="search"
                     placeholder="Cerca o inizia una nuova chat"
@@ -60,7 +62,7 @@
               <!-- /Casella di ricerca -->
               <!-- Contatti -->
               <ul class="contacts">
-                <li v-for="(contact, index) in contacts" :key="contact.avatar" class="contact-item" :class="index === activeChat ? 'active' : ''" @click="activeChat = index">
+                <li v-for="(contact, index) in contacts" :key="contact.avatar" class="contact-item" :class="index === activeChat ? 'active' : ''" v-show="contact.visible" @click="activeChat = index">
                   <!-- Avatar contatto -->
                   <img :src="`img/avatar${contact.avatar}.jpg`" alt="contact avatar" />
                   <!-- /Avatar contatto -->
