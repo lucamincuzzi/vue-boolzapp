@@ -3,10 +3,7 @@ const { createApp } = Vue;
 
 // Luxon
 const dt = luxon.DateTime;
-const now =
-  dt.now().setLocale("it").toLocaleString(dt.DATE_SHORT) +
-  " " +
-  dt.now().setLocale("it").toLocaleString(dt.TIME_24_WITH_SECONDS);
+const getCurFullDate = () => dt.now().setLocale("it").toLocaleString(dt.DATE_SHORT) + " " + dt.now().setLocale("it").toLocaleString(dt.TIME_24_WITH_SECONDS);
 
 createApp({
   data() {
@@ -16,7 +13,7 @@ createApp({
       activeChat: 0,
       newUserMsg: "",
       newContactMsg: {
-        date: now,
+        date: getCurFullDate(),
         message: "Ok",
         status: "received",
       },
@@ -186,7 +183,7 @@ createApp({
     };
   },
   created() {
-    console.log("App renderizzata", now);
+    console.log("App renderizzata", getCurFullDate());
   },
   methods: {
     showChat: function (clickedIndex) {
@@ -194,7 +191,7 @@ createApp({
     },
     sendMsg: function () {
       const newMsg = {
-        date: now,
+        date: getCurFullDate(),
         message: this.newUserMsg,
         status: "sent",
       };
