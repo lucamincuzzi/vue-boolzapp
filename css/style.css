@@ -80,7 +80,7 @@ footer {
 
 .sent,
 .received {
-  max-width: 70%;
+  max-width: 50%;
   border-radius: 10px;
   height: 95%;
 }
@@ -119,10 +119,12 @@ footer {
 }
 
 .notification-text h4 {
+  font-size: 0.95rem;
   margin-bottom: 5px;
 }
 
 .notification-text span {
+  cursor: pointer;
   color: gray;
   text-decoration: underline;
 }
@@ -189,8 +191,13 @@ footer input {
   border-bottom: 1px solid rgb(237, 237, 237);
 }
 
+.contact-item:hover {
+  background-color: #f7f7f7;
+  cursor: pointer;
+}
+
 .contact-item.active {
-    background-color: #f7f7f7;
+    background-color: #ededed;
 }
 
 .contact-content {

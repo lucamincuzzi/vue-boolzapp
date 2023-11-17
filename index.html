@@ -34,11 +34,11 @@
               </div>
               <!-- /Header -->
               <!-- Notifiche -->
-              <div class="notification">
+              <div v-show="notifReqVisibility" class="notification">
                 <div class="bell">
                   <i class="fa-solid fa-bell-slash"></i>
                 </div>
-                <div class="notification-text">
+                <div @click="dismissReq" class="notification-text">
                   <h4>Ricevi notifiche di nuovi messaggi</h4>
                   <span>Attiva notifiche desktop</span>
                 </div>
@@ -57,7 +57,7 @@
                   />
                 </div>
               </div>
-              <!-- Casella di ricerca -->
+              <!-- /Casella di ricerca -->
               <!-- Contatti -->
               <ul class="contacts">
                 <li v-for="(contact, index) in contacts" :key="contact.avatar" class="contact-item" :class="index === activeChat ? 'active' : ''" @click="activeChat = index">
@@ -102,20 +102,22 @@
                 </ul>
               </div>
               <main>
+                <!-- Chat -->
                 <div class="chat-box">
-                  <div v-for="(msg, index) in contacts[activeChat].messages" :key="index" class="chat-text" :class="msg.status">
+                  <div v-for="(msg, index) in contacts[activeChat].messages" :key="msg.date" class="chat-text" :class="msg.status">
                     <div class="text-content">
                       <p>{{ msg.message }}</p>
                       <i class="fa-solid fa-chevron-down"></i>
                     </div>
-                    <span class="text-time-sent">16:13</span>
+                    <span class="text-time-sent">{{ fullDateToTime(index) }}</span>
                   </div>
                 </div>
+                <!-- /Chat -->
               </main>
               <footer>
                 <div class="footer-box">
                   <i class="fa-regular fa-face-smile"></i>
-                  <input type="text" placeholder="Scrivi un messaggio" />
+                  <input v-model="newUserMsg" @keyup.enter="sendMsg" type="text" placeholder="Scrivi un messaggio" />
                   <i class="fa-solid fa-microphone"></i>
                 </div>
               </footer>
@@ -128,6 +130,8 @@
     <!-- Scripts -->
         <!-- Vuejs -->
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <!-- Luxon -->
+        <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
         <!-- Custom script -->
         <script src="js/script.js"></script>
     <!-- /Scripts -->

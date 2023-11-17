@@ -1,9 +1,24 @@
+// Vue
 const { createApp } = Vue;
+
+// Luxon
+const dt = luxon.DateTime;
+const now =
+  dt.now().setLocale("it").toLocaleString(dt.DATE_SHORT) +
+  " " +
+  dt.now().setLocale("it").toLocaleString(dt.TIME_24_WITH_SECONDS);
 
 createApp({
   data() {
     return {
+      notifReqVisibility: true,
       activeChat: 0,
+      newUserMsg: "",
+      newContactMsg: {
+        date: now,
+        message: "Ok",
+        status: "received",
+      },
       contacts: [
         {
           name: "Michele",
@@ -170,11 +185,36 @@ createApp({
     };
   },
   created() {
-    console.log("App renderizzata");
+    console.log("App renderizzata", now);
   },
   methods: {
     showChat: function (clickedIndex) {
       this.activeChat = clickedIndex;
+    },
+    sendMsg: function () {
+      const newMsg = {
+        date: now,
+        message: this.newUserMsg,
+        status: "sent",
+      };
+      if (newMsg.message !== "") {
+        this.contacts[this.activeChat].messages.push(newMsg);
+        setTimeout(() => {
+          this.contacts[this.activeChat].messages.push(this.newContactMsg);
+        }, "1000");
+      }
+      this.newUserMsg = "";
+    },
+    fullDateToTime: function(index) {
+      const msgFullDate = this.contacts[this.activeChat].messages[index].date;
+      const dateHrsMins = dt
+        .fromFormat(msgFullDate, "dd/MM/yyyy HH:mm:ss")
+        .toFormat("HH:mm");
+      return dateHrsMins;
+    },
+    dismissReq: function () {
+      this.notifReqVisibility = false;
+      console.log(this.notifReqVisibility);
     },
   },
 }).mount("#app");
